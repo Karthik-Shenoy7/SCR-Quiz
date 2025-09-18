@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏘️ Society, Culture & Rural Development Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Instagram Promotion Banner -->
+    <div class="instagram-banner">
+        <span>📸 Instagram: karthkshenoy_1132 - Follow for more educational content!</span>
+        <button id="adminAccessBtn" class="admin-access-btn">Admin</button>
+    </div>
+
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen" class="screen active">
+        <div class="container">
+            <div class="welcome-content">
+                <h1 class="welcome-title">🏘️ Society, Culture & Rural Development Quiz</h1>
+                <p class="welcome-subtitle">Comprehensive Assessment from 114 SCR Questions Database</p>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">📚</div>
+                        <div class="info-text">114 SCR Questions</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🎲</div>
+                        <div class="info-text">40 Random Selection</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">⏰</div>
+                        <div class="info-text">20 Minutes</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🔀</div>
+                        <div class="info-text">Shuffled Options</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentName" class="form-label">Enter Your Name</label>
+                    <input type="text" id="studentName" class="form-control" placeholder="Your Name" required>
+                </div>
+
+                <button id="startQuizBtn" class="btn btn--primary btn--lg btn--full-width">
+                    🏘️ Begin SCR Assessment
+                </button>
+
+                <div class="randomization-notice">
+                    <p>🔄 Each session features randomly selected questions from comprehensive SCR database with shuffled options for fair assessment covering village sociology, diversity, caste systems, marriage patterns, land ownership, tribal communities, and social development schemes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quizScreen" class="screen">
+        <div class="container">
+            <div class="quiz-header">
+                <div class="quiz-info">
+                    <span id="questionCounter">Question 1 of 40</span>
+                    <div class="randomization-indicators">
+                        <span class="indicator">🎲 Random from 114 SCR Questions</span>
+                        <span class="indicator">🔀 Options Shuffled</span>
+                    </div>
+                </div>
+                <div class="timer-container">
+                    <span id="timer">20:00</span>
+                </div>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progressBar" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <div id="questionText" class="question-text"></div>
+                <div id="optionsContainer" class="options-container"></div>
+            </div>
+
+            <div class="quiz-navigation">
+                <button id="prevBtn" class="btn btn--outline">← Previous</button>
+                <button id="nextBtn" class="btn btn--primary">Next →</button>
+                <button id="submitBtn" class="btn btn--primary submit-btn hidden">🏘️ Submit Assessment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="resultsScreen" class="screen">
+        <div class="container">
+            <div class="results-content">
+                <h2 class="results-title">🎯 SCR Assessment Complete</h2>
+                <div class="student-name-display" id="studentNameDisplay"></div>
+                
+                <div class="score-circle">
+                    <div class="score-inner">
+                        <span id="scorePercentage">0%</span>
+                        <span class="score-label">Score</span>
+                    </div>
+                </div>
+
+                <div class="results-stats">
+                    <div class="stat-card correct">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-value" id="correctCount">0</div>
+                        <div class="stat-label">Correct</div>
+                    </div>
+                    <div class="stat-card wrong">
+                        <div class="stat-icon">❌</div>
+                        <div class="stat-value" id="wrongCount">0</div>
+                        <div class="stat-label">Wrong</div>
+                    </div>
+                    <div class="stat-card unanswered">
+                        <div class="stat-icon">❓</div>
+                        <div class="stat-value" id="unansweredCount">0</div>
+                        <div class="stat-label">Unanswered</div>
+                    </div>
+                </div>
+
+                <div class="time-taken">
+                    <span>⏱️ Time Taken: <span id="timeTaken">0:00</span></span>
+                </div>
+
+                <div class="congratulations-message">
+                    <p>🌾 Excellent work on your Society, Culture & Rural Development assessment! Your understanding of village sociology, cultural diversity, and rural transformation contributes to building stronger communities. 🏘️</p>
+                </div>
+
+                <div class="instagram-reminder">
+                    <p>📸 Follow <strong>karthkshenoy_1132</strong> on Instagram for more educational content!</p>
+                </div>
+
+                <div class="results-actions">
+                    <button id="reviewAnswersBtn" class="btn btn--primary">📋 Review Answers</button>
+                    <button id="newQuizBtn" class="btn btn--outline">🎲 New Random Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review Screen -->
+    <div id="reviewScreen" class="screen">
+        <div class="container">
+            <div class="review-header">
+                <h2>📋 SCR Knowledge Review</h2>
+                <div class="review-summary">
+                    <span class="summary-correct">✅ Correct: <span id="reviewCorrectCount">0</span></span>
+                    <span class="summary-wrong">❌ Wrong: <span id="reviewWrongCount">0</span></span>
+                    <span class="summary-unanswered">❓ Unanswered: <span id="reviewUnansweredCount">0</span></span>
+                </div>
+            </div>
+
+            <div id="reviewQuestions" class="review-questions"></div>
+
+            <div class="review-actions">
+                <button id="backToResultsBtn" class="btn btn--primary">← Back to Results</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminScreen" class="screen">
+        <div class="container">
+            <div class="admin-header">
+                <h2>👑 SCR Admin Dashboard</h2>
+                <button id="logoutBtn" class="btn btn--outline">Logout</button>
+            </div>
+
+            <div class="admin-stats">
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon">👥</div>
+                    <div class="admin-stat-value" id="totalStudents">0</div>
+                    <div class="admin-stat-label">Total Students</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon">📈</div>
+                    <div class="admin-stat-value" id="averageScore">0%</div>
+                    <div class="admin-stat-label">Average Score</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon">🏘️</div>
+                    <div class="admin-stat-value">114</div>
+                    <div class="admin-stat-label">Question Bank Size</div>
+                </div>
+                <div class="admin-stat-card">
+                    <div class="admin-stat-icon">✅</div>
+                    <div class="admin-stat-value" id="completionRate">0%</div>
+                    <div class="admin-stat-label">Completion Rate</div>
+                </div>
+            </div>
+
+            <div class="admin-table-container">
+                <div class="admin-table-header">
+                    <h3>Student Performance</h3>
+                    <button id="exportBtn" class="btn btn--primary">📥 Export CSV</button>
+                </div>
+                <table id="studentTable" class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Score</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Unanswered</th>
+                            <th>Time Taken</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>🔐 SCR Admin Login</h3>
+            <div class="form-group">
+                <label class="form-label">Username</label>
+                <input type="text" id="adminUsername" class="form-control" placeholder="SCRADMIN">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" id="adminPassword" class="form-control" placeholder="RURAL2024">
+            </div>
+            <div class="modal-actions">
+                <button id="adminLoginSubmit" class="btn btn--primary">Login</button>
+                <button id="adminModalClose" class="btn btn--outline">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
